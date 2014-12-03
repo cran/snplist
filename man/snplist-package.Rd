@@ -12,15 +12,15 @@ A set of functions to create SQL tables of gene and SNP information and compose 
 \tabular{ll}{
 Package: \tab snplist\cr
 Type: \tab Package\cr
-Version: \tab 0.12\cr
-Date: \tab 2013-11-22\cr
+Version: \tab 0.13\cr
+Date: \tab 2014-12-03\cr
 License: \tab GPL-3\cr
 }
 Please see the example function calls below, or refer to the individual function documentation or the included vignette for more information.
 }
 \author{
 Authors: Chanhee Yi, Alexander Sibley, and Kouros Owzar
-Maintainer: Chanhee Yi <chanhee.yi@dm.duke.edu>
+Maintainer: Alexander Sibley <alexander.sibley@dm.duke.edu>
 }
 %%~~ Optionally other standard keywords, one per line, from file KEYWORDS in ~~
 %%~~ the R documentation directory ~~

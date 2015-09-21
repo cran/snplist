@@ -34,7 +34,7 @@ stdt<-date()
 \begin{frame}
 	\title{\snplist}
 	\subtitle{Creating Gene Sets}
-	\date{December 3, 2014}
+	\date{September 18, 2015}
 	\titlepage
 	%\input{Settings/logos}
 \end{frame}
@@ -61,11 +61,10 @@ genes <- c("BRCA1","BRCA2")
 
 The SNP data can come from either a \texttt{data.frame} object or a file.  Either way, it must have one SNP per line, with columns 'chr' (chromosome),'pos' (position), and 'rsid' (rsID):
 <<snps>>=
-snpInfo <- cbind(c(17,17,13,13),
-		 c(41211653, 41213996, 32890026,32890572),
-		 c("rs8176273","rs8176265","rs9562605","rs1799943") )
-colnames(snpInfo) <- c('chr','pos','rsid')
-snpInfo <- as.data.frame(snpInfo)
+snpInfo <- data.frame(chr=c(17,17,13,13),
+                      pos=c(41211653, 41213996, 32890026,32890572),
+                      rsid=c("rs8176273","rs8176265","rs9562605","rs1799943"),
+                      stringsAsFactors=FALSE)
 @ 
 \end{frame}
 

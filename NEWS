@@ -1,0 +1,10 @@
+snplist v0.14 (Release date: 2015-09-18)
+============
+* Addition of NEWS file
+* Bug fix to prevent warnings of multiple comparisons in setSNPTable() and makeGeneSet() functions when first argument is a data.frame instead of a file name
+* Missing required column names in setSNPTable() and makeGeneSet() functions now results in stop() instead of return(print())
+
+snplist v0.13 (Release date: 2014-12-03)
+============
+* Change of Maintainer
+* Added DBI to Imports in DOCUMENTATION and in NAMESPACE

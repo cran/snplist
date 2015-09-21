@@ -3,7 +3,7 @@
 \alias{snplist}
 \docType{package}
 \title{
-Tools to create Gene Sets
+Tools to Create Gene Sets
 }
 \description{
 A set of functions to create SQL tables of gene and SNP information and compose them into a SNP Set, for example for use with the \code{RSNPset} package, or to export to a PLINK set.
@@ -12,8 +12,8 @@ A set of functions to create SQL tables of gene and SNP information and compose 
 \tabular{ll}{
 Package: \tab snplist\cr
 Type: \tab Package\cr
-Version: \tab 0.13\cr
-Date: \tab 2014-12-03\cr
+Version: \tab 0.14\cr
+Date: \tab 2015-09-18\cr
 License: \tab GPL-3\cr
 }
 Please see the example function calls below, or refer to the individual function documentation or the included vignette for more information.

@@ -34,7 +34,7 @@ makeGeneSet <-function(annoInfo=NULL, margin=0,
             sprintf("CREATE VIEW %s AS SELECT rsid from %s",
             annoTable,allTable))
     }
-    else if(suppressWarnings(isFile(annoInfo))){
+    else if(suppressWarnings(isFile(annoInfo[1]))){ # Use of '[1]' prevents warning from multiple comparisons
         dbGetQuery(conn,sprintf("CREATE TABLE %s(rsid,primary key(rsid))",annoTable))
         field.types <- list(rsid="TEXT")
         dbWriteTable(conn,annoTable,annoInfo, 
@@ -46,7 +46,7 @@ makeGeneSet <-function(annoInfo=NULL, margin=0,
             annoInfo<-data.frame("rsid"=annoInfo)
         }
         else if ( !all('rsid' %in% names(annoInfo)) ) {
-            return(print("The column names should have 'rsid'."))
+            stop("The column names should have 'rsid'.")
         }
         dbWriteTable(conn,annoTable,annoInfo,row.names=FALSE,append=TRUE)
     }

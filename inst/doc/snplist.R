@@ -11,11 +11,10 @@ stdt<-date()
 genes <- c("BRCA1","BRCA2")
 
 ## ----snps-----------------------------------------------------------
-snpInfo <- cbind(c(17,17,13,13),
-		 c(41211653, 41213996, 32890026,32890572),
-		 c("rs8176273","rs8176265","rs9562605","rs1799943") )
-colnames(snpInfo) <- c('chr','pos','rsid')
-snpInfo <- as.data.frame(snpInfo)
+snpInfo <- data.frame(chr=c(17,17,13,13),
+                      pos=c(41211653, 41213996, 32890026,32890572),
+                      rsid=c("rs8176273","rs8176265","rs9562605","rs1799943"),
+                      stringsAsFactors=FALSE)
 
 ## ----loadpkg, size='tiny'-------------------------------------------
 library(snplist)

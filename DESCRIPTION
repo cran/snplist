@@ -1,8 +1,8 @@
 Package: snplist
 Type: Package
 Title: Tools to Create Gene Sets
-Version: 0.14
-Date: 2015-09-18
+Version: 0.15
+Date: 2015-11-19
 Author: Chanhee Yi, Alexander Sibley, and Kouros Owzar
 Maintainer: Alexander Sibley <alexander.sibley@dm.duke.edu>
 Description: A set of functions to create SQL tables of gene and SNP information and compose them into a SNP Set, for example for use with the RSNPset package, or to export to a PLINK set.
@@ -14,6 +14,6 @@ Suggests: knitr
 LinkingTo: Rcpp
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2015-09-18 20:45:01 UTC; abs33
+Packaged: 2015-11-19 23:25:09 UTC; abs33
 Repository: CRAN
-Date/Publication: 2015-09-21 21:36:25
+Date/Publication: 2015-11-20 08:25:05

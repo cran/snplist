@@ -34,7 +34,7 @@ stdt<-date()
 \begin{frame}
 	\title{\snplist}
 	\subtitle{Creating Gene Sets}
-	\date{November 19, 2015}
+	\date{October 27, 2016}
 	\titlepage
 	%\input{Settings/logos}
 \end{frame}
@@ -62,7 +62,7 @@ genes <- c("BRCA1","BRCA2")
 The SNP data can come from either a \texttt{data.frame} object or a file.  Either way, it must have one SNP per line, with columns 'chr' (chromosome),'pos' (position), and 'rsid' (rsID):
 <<snps>>=
 snpInfo <- data.frame(chr=c(17,17,13,13),
-                      pos=c(41211653, 41213996, 32890026,32890572),
+                      pos=c(41211653,41213996,32890026,32890572),
                       rsid=c("rs8176273","rs8176265","rs9562605","rs1799943"),
                       stringsAsFactors=FALSE)
 @ 
@@ -71,7 +71,7 @@ snpInfo <- data.frame(chr=c(17,17,13,13),
 \section{Load Packages}
 \begin{frame}[fragile]{Load Packages}
 Load \snplist{} (after installing its dependent packages):
-<<loadpkg, size='tiny'>>=
+<<loadpkg>>=
 library(snplist)
 @ 
 \end{frame}
@@ -81,15 +81,11 @@ library(snplist)
 To create the Gene Table, we need the chromosome and start and end positions of each gene.\\
 \vspace{2mm} 
 For the selected genes, we can get this data from Ensembl using \biomart{} \cite{BioMart}:
-<<biomart1, eval=FALSE>>=
-geneInfo <- getBioMartData(genes) 
-geneInfo
-@
-<<biomart2, echo=FALSE>>=
-geneInfo <- cbind(c('BRCA1','BRCA2'), c(17,13),c(41196312,32889611), 
-		  c(41277500,32973805))
-colnames(geneInfo) <- c('gene','chr','start','end')
-geneInfo <- as.data.frame(geneInfo)
+<<biomart1, eval=TRUE>>=
+geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL", 
+                                     host="grch37.ensembl.org", 
+                                     path="/biomart/martservice", 
+                                  dataset="hsapiens_gene_ensembl") 
 geneInfo
 @
 \end{frame}

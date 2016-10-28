@@ -21,11 +21,11 @@ makeGeneSet <-function(annoInfo=NULL, margin=0,
     }    
     if(nrow(tables)!=0 && any(annoTable==tables)) {
         cat("remove the existing table",annoTable, "\n")
-        dbGetQuery(conn,sprintf("DROP TABLE %s;",annoTable))
+        dbGetQuery(conn,sprintf("DROP VIEW %s;",annoTable))
     }
     if(nrow(views)!=0 && any(annoTable==views)) {
         cat("remove the existing table",annoTable, "\n")
-        dbGetQuery(conn,sprintf("DROP TABLE %s;",annoTable))
+        dbGetQuery(conn,sprintf("DROP VIEW %s;",annoTable))
     }
     
     #-----------------------------------------------------------------------

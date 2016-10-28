@@ -1,3 +1,8 @@
+snplist v0.16 (Release date: 2016-10-27)
+=============
+* makeGeneSet() updated to correct warning when deleting existing SQL views
+* Vignette updated to access GRCh37 SNP positions from Ensembl
+
 snplist v0.15 (Release date: 2015-11-05)
 =============
 * getBioMartData() updated to allow users to specify the Ensembl data mart 

@@ -12,22 +12,18 @@ genes <- c("BRCA1","BRCA2")
 
 ## ----snps-----------------------------------------------------------
 snpInfo <- data.frame(chr=c(17,17,13,13),
-                      pos=c(41211653, 41213996, 32890026,32890572),
+                      pos=c(41211653,41213996,32890026,32890572),
                       rsid=c("rs8176273","rs8176265","rs9562605","rs1799943"),
                       stringsAsFactors=FALSE)
 
-## ----loadpkg, size='tiny'-------------------------------------------
+## ----loadpkg--------------------------------------------------------
 library(snplist)
 
-## ----biomart1, eval=FALSE-------------------------------------------
-#  geneInfo <- getBioMartData(genes)
-#  geneInfo
-
-## ----biomart2, echo=FALSE-------------------------------------------
-geneInfo <- cbind(c('BRCA1','BRCA2'), c(17,13),c(41196312,32889611), 
-		  c(41277500,32973805))
-colnames(geneInfo) <- c('gene','chr','start','end')
-geneInfo <- as.data.frame(geneInfo)
+## ----biomart1, eval=TRUE--------------------------------------------
+geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL", 
+                                     host="grch37.ensembl.org", 
+                                     path="/biomart/martservice", 
+                                  dataset="hsapiens_gene_ensembl") 
 geneInfo
 
 ## ----genetbl--------------------------------------------------------

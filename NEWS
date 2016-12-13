@@ -1,3 +1,7 @@
+snplist v0.17 (Release date: 2016-12-13)
+=============
+* setSNPTable() and setGeneTable now force 'chr' to be character and 'pos', 'start', and 'end' to be numeric before populating the SQL tables to ensure values are comparable between the two.
+
 snplist v0.16 (Release date: 2016-10-27)
 =============
 * makeGeneSet() updated to correct warning when deleting existing SQL views

@@ -11,14 +11,15 @@ setSNPTable <-function(snpInfo,table='allchrpos',db='snplistdb') {
     
     field.types <- list(chr="TEXT",pos="INTEGER",rsid="TEXT")
     if(suppressWarnings(isFile(snpInfo[1]))){ # Use of '[1]' prevents warning from multiple comparisons
-        dbWriteTable(conn=conn, name=table, value=snpInfo, 
-                     row.names=FALSE,header=FALSE,
-                     field.types=field.types, sep ="\t")
+        dbWriteTable(conn,table,snpInfo,row.names=FALSE, 
+                     header=FALSE,field.types=field.types,sep ="\t")
     } 
     else {
         if ( !all( names(field.types) %in% names(snpInfo)) ) {
-            stop("The column names should have 'chr','pos','rsid'.")
+            stop("The column names should include 'chr','pos','rsid'.")
         }
+        snpInfo$chr <- as.character(snpInfo$chr)
+        snpInfo$pos <- as.numeric(snpInfo$pos)
         dbWriteTable(conn,table,snpInfo,row.names=FALSE)
     }
 

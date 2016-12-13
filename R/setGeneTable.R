@@ -1,7 +1,10 @@
 setGeneTable <-function(geneInfo,table='gene',db='snplistdb') {
     if ( !all(c('gene','chr','start','end') %in% names(geneInfo)) ) {
-        return(print("The column names should have 'gene', 'chr', 'start', 'end'."))
+        stop("The column names should inlcude 'gene', 'chr', 'start', 'end'.")
     }
+    geneInfo$chr <- as.character(geneInfo$chr)
+    geneInfo$start <- as.numeric(geneInfo$start)
+    geneInfo$end <- as.numeric(geneInfo$end)
     
     drv   <- dbDriver("SQLite")
     dbFile<- sprintf("%s.sqlite",db)

@@ -12,8 +12,8 @@ A set of functions to create SQL tables of gene and SNP information and compose 
 \tabular{ll}{
 Package: \tab snplist\cr
 Type: \tab Package\cr
-Version: \tab 0.17\cr
-Date: \tab 2016-12-13\cr
+Version: \tab 0.18\cr
+Date: \tab 2017-08-14\cr
 License: \tab GPL-3\cr
 }
 Please see the example function calls below, or refer to the individual function documentation or the included vignette for more information.

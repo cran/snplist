@@ -3,10 +3,10 @@ setSNPTable <-function(snpInfo,table='allchrpos',db='snplistdb') {
     dbFile<- sprintf("%s.sqlite",db)
     conn  <- dbConnect(drv, dbname = dbFile)
 
-    tables<-dbGetQuery(conn,"SELECT name FROM sqlite_master WHERE type='table';")
+    tables <- dbGetQuery(conn,"SELECT name FROM sqlite_master WHERE type='table';")
     if(nrow(tables)!=0 && any(table==tables)) {
         cat("remove the existing table :",table, "\n\n")
-        dbGetQuery(conn,sprintf("DROP TABLE %s;",table))
+        dbExecute(conn,sprintf("DROP TABLE %s;",table))
     }  
     
     field.types <- list(chr="TEXT",pos="INTEGER",rsid="TEXT")
@@ -27,7 +27,7 @@ setSNPTable <-function(snpInfo,table='allchrpos',db='snplistdb') {
     print( dbGetQuery(conn,sprintf("SELECT * FROM %s LIMIT 10;",table)) )
     cat(".....\n\n")
 
-    r<-dbGetQuery(conn,sprintf("SELECT COUNT(*) FROM %s;",table))
+    r <- dbGetQuery(conn,sprintf("SELECT COUNT(*) FROM %s;",table))
     dbDisconnect(conn)
     
     return(r)

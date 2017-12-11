@@ -1,3 +1,7 @@
+snplist v0.18.1 (Release date: 2017-12-11)
+===============
+* Bug fix for drop table error. Now makeGeneSet() always makes annoTable as TABLE (never as VIEW)
+
 snplist v0.18 (Release date: 2017-08-14)
 =============
 * Now requires RSQLite >=1.1 (changed calls of dbGetQuery to dbExecute)

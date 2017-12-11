@@ -21,17 +21,17 @@ makeGeneSet <-function(annoInfo=NULL, margin=0,
     }    
     if(nrow(tables)!=0 && any(annoTable==tables)) {
         cat("Remove the existing table",annoTable, "\n")
-        dbExecute(conn,sprintf("DROP VIEW %s;",annoTable))
+        dbExecute(conn,sprintf("DROP TABLE %s;",annoTable))
     }
-    if(nrow(views)!=0 && any(annoTable==views)) {
-        cat("Remove the existing table",annoTable, "\n")
-        dbExecute(conn,sprintf("DROP VIEW %s;",annoTable))
-    }
+    #if(nrow(views)!=0 && any(annoTable==views)) {
+    #    cat("Remove the existing table",annoTable, "\n")
+    #    dbExecute(conn,sprintf("DROP VIEW %s;",annoTable))
+    #}
     
     #-----------------------------------------------------------------------
     if(is.null(annoInfo)) {
         dbExecute(conn, 
-            sprintf("CREATE VIEW %s AS SELECT rsid from %s",
+            sprintf("CREATE TABLE %s AS SELECT rsid from %s",
             annoTable,allTable))
     }
     else if(suppressWarnings(isFile(annoInfo[1]))){ # Use of '[1]' prevents warning from multiple comparisons

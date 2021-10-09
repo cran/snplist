@@ -56,9 +56,11 @@ dim(geneInfo)
 dim(snpInfo)
 dim(annoInfo)
 
+\dontrun{
 setGeneTable(geneInfo)
 setSNPTable(snpInfo)
 geneset <- makeGeneSet(annoInfo)
 exportPLINKSet(geneset,"geneSet.set")
 file.show("geneSet.set")
+}
 }

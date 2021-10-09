@@ -1,4 +1,4 @@
-## ----setup1, include=FALSE-----------------------------------------------
+## ----setup1, include=FALSE----------------------------------------------------
 require(knitr)
 opts_chunk$set(fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
 
@@ -19,11 +19,20 @@ snpInfo <- data.frame(chr=c(17,17,13,13),
 ## ----loadpkg--------------------------------------------------------
 library(snplist)
 
-## ----biomart1, eval=TRUE--------------------------------------------
-geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL", 
-                                     host="grch37.ensembl.org", 
-                                     path="/biomart/martservice", 
-                                  dataset="hsapiens_gene_ensembl") 
+## ----biomart1, eval=FALSE-------------------------------------------
+#  geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL",
+#                                       host="grch37.ensembl.org",
+#                                       path="/biomart/martservice",
+#                                    dataset="hsapiens_gene_ensembl")
+
+## ----biomart2, include=FALSE----------------------------------------
+geneInfo <- data.frame(gene=c("BRCA1","BRCA2"),
+                      chr=c(17,13),
+                      start=c(41196312, 32889611),
+                      end=c(41277500, 32973805),
+                      stringsAsFactors=FALSE)
+
+## ----biomart3-------------------------------------------------------
 geneInfo
 
 ## ----genetbl--------------------------------------------------------
@@ -49,4 +58,9 @@ toLatex(sessionInfo(), locale=FALSE)
 ## ----times, echo=FALSE----------------------------------------------
 print(paste("Start Time",stdt))
 print(paste("End Time  ",date()))
+
+## ----cleanup, include=FALSE-----------------------------------------
+file.remove("mySNPset.set") 
+file.remove("geneSet.set") 
+file.remove("snplistdb.sqlite")
 

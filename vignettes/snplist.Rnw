@@ -35,7 +35,7 @@ stdt<-date()
 \begin{frame}
 	\title{\snplist}
 	\subtitle{Creating Gene Sets}
-	\date{December 11, 2017}
+	\date{October 8, 2021}
 	\titlepage
 	%\input{Settings/logos}
 \end{frame}
@@ -46,7 +46,7 @@ stdt<-date()
 
 \section{Introduction}
 \begin{frame}{Introduction}
-This document provides an example of how to use the \snplist{} package to create SNP Sets, for example for use with the \rsnpset{} package \cite{RSNPset}. The SNP Sets created here use genes as the loci of interest, i.e. they are sets of SNPs relevant to specific genes, so we refer to them as Gene Sets. Note that a similar approach could be used to generate SNP Sets for other genomic loci, including bands and pathways.\\
+This document provides an example of how to use the \snplist{} package to create SNP Sets. The SNP Sets created here use genes as the loci of interest, i.e. they are sets of SNPs relevant to specific genes, so we refer to them as Gene Sets. Note that a similar approach could be used to generate SNP Sets for other genomic loci, including bands and pathways.\\
 \vspace{2mm}
 To make the Gene Sets, we first create a table of gene names, chromosomes, and start and end positions. This information can be pulled from Ensembl \cite{Ensembl}, based on a list of specified gene names. Next, a similar SNP Table is made which contains rsIDs, chromosomes, and positions. Finally, the Gene Sets are composed from the two tables, based on SNP locations. We also demonstrate exporting the Gene Sets as a PLINK \cite{PLINK} set.
 \end{frame}
@@ -82,11 +82,20 @@ library(snplist)
 To create the Gene Table, we need the chromosome and start and end positions of each gene.\\
 \vspace{2mm} 
 For the selected genes, we can get this data from Ensembl using \biomart{} \cite{BioMart}:
-<<biomart1, eval=TRUE>>=
+<<biomart1, eval=FALSE>>=
 geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL", 
                                      host="grch37.ensembl.org", 
                                      path="/biomart/martservice", 
                                   dataset="hsapiens_gene_ensembl") 
+@
+<<biomart2, include=FALSE>>=
+geneInfo <- data.frame(gene=c("BRCA1","BRCA2"),
+                      chr=c(17,13),
+                      start=c(41196312, 32889611),
+                      end=c(41277500, 32973805),
+                      stringsAsFactors=FALSE)
+@
+<<biomart3>>=
 geneInfo
 @
 \end{frame}
@@ -179,10 +188,6 @@ exportPLINKSet(geneset2, "mySNPset.set")
   29(1):308-11,
   2001.
 
-\setbeamertemplate{bibliography item}[triangle]
-\bibitem{RSNPset}
-  \rsnpset{} is available under the GPL license from the Comprehensive R Archive Network (CRAN) web page.
-
 \end{thebibliography}
 }
 \end{frame}
@@ -196,6 +201,12 @@ print(paste("Start Time",stdt))
 print(paste("End Time  ",date()))
 @ 
 \end{frame}
+
+<<cleanup, include=FALSE>>=
+file.remove("mySNPset.set") 
+file.remove("geneSet.set") 
+file.remove("snplistdb.sqlite")
+@ 
 
 \end{document}
 

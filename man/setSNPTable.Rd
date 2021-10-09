@@ -30,6 +30,8 @@
 		     c(41211653, 41213996, 32890026,32890572),
 		     c("rs8176273","rs8176265","rs9562605","rs1799943") )
     colnames(snpInfo) <- c('chr','pos','rsid')
+    \dontrun{
     setSNPTable(as.data.frame(snpInfo))
+    }
 }
 \keyword{ database }

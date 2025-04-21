@@ -1,3 +1,9 @@
+snplist v0.18.3 (Release date: 2025-04-21)
+===============
+*Updated cross-references from \link{PKG} to \link[PKG]{FOO} format
+*Updated class checking in makeGeneSet.R to use is() instead of comparing class() to string
+*Updated DESCRIPTION to use Authors@R
+
 snplist v0.18.2 (Release date: 2021-10-08)
 ===============
 * Removed calls to biomaRt and references to RSNPset from vignette

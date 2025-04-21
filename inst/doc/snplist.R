@@ -20,10 +20,10 @@ snpInfo <- data.frame(chr=c(17,17,13,13),
 library(snplist)
 
 ## ----biomart1, eval=FALSE-------------------------------------------
-#  geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL",
-#                                       host="grch37.ensembl.org",
-#                                       path="/biomart/martservice",
-#                                    dataset="hsapiens_gene_ensembl")
+# geneInfo <- getBioMartData(genes, biomart="ENSEMBL_MART_ENSEMBL",
+#                                      host="grch37.ensembl.org",
+#                                      path="/biomart/martservice",
+#                                   dataset="hsapiens_gene_ensembl")
 
 ## ----biomart2, include=FALSE----------------------------------------
 geneInfo <- data.frame(gene=c("BRCA1","BRCA2"),

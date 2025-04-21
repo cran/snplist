@@ -42,7 +42,7 @@ makeGeneSet <-function(annoInfo=NULL, margin=0,
     } 
     else {
         dbExecute(conn,sprintf("CREATE TABLE %s(rsid,primary key(rsid))",annoTable))
-        if(class(annoInfo)!="data.frame") {
+        if(!is(annoInfo, "data.frame")) {
             annoInfo <- data.frame("rsid"=annoInfo)
         }
         else if ( !all('rsid' %in% names(annoInfo)) ) {

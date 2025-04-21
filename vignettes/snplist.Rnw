@@ -35,7 +35,7 @@ stdt<-date()
 \begin{frame}
 	\title{\snplist}
 	\subtitle{Creating Gene Sets}
-	\date{October 8, 2021}
+	\date{April 21, 2025}
 	\titlepage
 	%\input{Settings/logos}
 \end{frame}

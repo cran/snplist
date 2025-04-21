@@ -12,8 +12,8 @@ A set of functions to create SQL tables of gene and SNP information and compose 
 \tabular{ll}{
 Package: \tab snplist\cr
 Type: \tab Package\cr
-Version: \tab 0.18.1\cr
-Date: \tab 2017-12-11\cr
+Version: \tab 0.18.3\cr
+Date: \tab 2025-04-21\cr
 License: \tab GPL-3\cr
 }
 Please see the example function calls below, or refer to the individual function documentation or the included vignette for more information.
@@ -26,7 +26,7 @@ Maintainer: Alexander Sibley <alexander.sibley@dm.duke.edu>
 %%~~ the R documentation directory ~~
 \keyword{ package }
 \seealso{
-    \code{RSQLite}, \code{\link{Rcpp}}
+    \code{RSQLite}, \code{\link[Rcpp]{Rcpp}}
 }
 \examples{
 chromosome <- c(1,5,22,"X","Y","MT")
